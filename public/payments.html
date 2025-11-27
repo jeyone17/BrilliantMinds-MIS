@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments - BrilliantMinds Management System</title>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .container { background:white; padding:20px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.2); margin-bottom:30px; }
+    table { width:100%; border-collapse:collapse; margin-top:20px; }
+    th, td { padding:10px; border-bottom:1px solid #ddd; text-align:left; }
+    th { background:#3498db; color:white; }
+    input, select { padding:5px; margin:5px 0; width:100%; }
+    button { padding:5px 10px; margin:2px; border:none; border-radius:5px; cursor:pointer; }
+    .edit-btn { background:orange; color:white; }
+    .delete-btn { background:red; color:white; }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src=images/Logo.png alt="logo">
+    <h2>BMIS</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="programs.html">Programs</a>
+    <a href="students.html">Students</a>
+    <a href="archives.html">Archives</a>
+    <a href="attendance.html">Attendance</a>
+    <a href="payments.html">Payments</a>
+    <a href="expenses.html">Expenses</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <h1>Payments Management</h1>
+    <div class="container">
+      <h3>Add / Edit Payment</h3>
+      <input type="hidden" id="payment-id">
+      <label>Student</label>
+      <input type="text" id="payment-student">
+      <label>Amount</label>
+      <input type="number" id="payment-amount">
+      <label>Date</label>
+      <input type="date" id="payment-date" value="">
+      <label>Status</label>
+      <select id="payment-status">
+        <option value="paid">Paid</option>
+        <option value="unpaid">Unpaid</option>
+      </select>
+      <button id="save-payment">Save Payment</button>
+
+      <h3>Payments List</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="payment-list"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/payments.js"></script>
+</body>
+</html>

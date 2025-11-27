@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archives - Tutorial System</title>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .container { background:white; padding:20px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.2); margin:20px; }
+    table { width:100%; border-collapse:collapse; margin-top:20px; }
+    th, td { padding:10px; border-bottom:1px solid #ddd; text-align:left; }
+    th { background:#3498db; color:white; }
+    input { padding:5px; margin:5px 0; width:100%; }
+
+    .restore-btn, .delete-btn {
+      padding:5px 10px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      margin:2px;
+    }
+    .restore-btn { background:green; color:white; }
+    .delete-btn { background:red; color:white; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src=images/Logo.png alt="logo">
+    <h2>BMIS</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="programs.html">Programs</a>
+    <a href="students.html">Students</a>
+    <a href="archives.html">Archives</a>
+    <a href="attendance.html">Attendance</a>
+    <a href="payments.html">Payments</a>
+    <a href="expenses.html">Expenses</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <h1>Archived Students</h1>
+
+    <div class="container">
+      <label for="search-student">Search:</label>
+      <input type="text" id="search-student" placeholder="Search by name or ID">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Program</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="archive-list"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/archives.js"></script>
+</body>
+</html>
